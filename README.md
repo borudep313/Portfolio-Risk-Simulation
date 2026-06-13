@@ -33,9 +33,21 @@ Using daily return data from 2015-2023, the project investigates:
 
 ### Portfolio Statistics
 The following statistics are calculated for each portfolio:
-- Expected return: $$E(R_p) = w^T\mu$$
-- Portfolio variance: $$\sigma^2_p = w^T\Sigmaw$$
-- Portfolio volatility: $$\sigma_p = \sqrt{w^T\Sigmaw}$$
+- Expected return:
+
+$$E(R_p) = w^T\mu$$
+
+
+- Portfolio variance:
+
+
+$$\sigma^2_p = w^T\Sigma w$$
+- Portfolio volatility:
+
+
+$$\sigma_p = \sqrt{w^T\Sigma w}$$
+
+
 where:
 - w is the weight vector
 - µ is the vector of mean returns
@@ -61,9 +73,17 @@ The resulting feasible portfolio sets illustrate the risk-return trade-off avail
 
 ### Beta and CAPM Analysis
 Asset betas are estimated relative to SPY:
-$$f\beta_i = \frac{Cov(R_i,R_m)/Var(R_m)}$$
+
+
+$$\beta_i = \frac{Cov(R_i,R_m)}{Var(R_m)}$$
+
+
 CAPM expected returns are then calculated:
+
+
 $$E(R_i) = R_f + \beta_i(E(R_m)-R_f)$$
+
+
 Historical returns are compared with CAPM estimates to investigate alpha and deviations from market-risk based predictions.
 Rolling one-year beta estimates are also calculated for both portfolios, allowing examination of how market exposure changes over time and the effect of diversification on beta variability and stability of systematic risk.
 
@@ -76,13 +96,21 @@ The simulation uses:
 - Multivariate normal return generation
 - Cholesky decomposition to preserve correlation structure
 Simulated asset returns are generated accorting to:
+
+
 $$X=\mu+ZL$$
+
+
 where:
 - Z contains independent standard normal draws
 - L is the Cholesky factor of the covariance matrix
 - µ is the vector of historical average returns
 Portfolio wealth is accumulated using compounded daily returns:
+
+
 $$W_t = \prod_{i=1}^{t}(1+r_i)$$
+
+
 10000 simulations are performed for each portfolio.
   
 ### Risk and Return Metrics
